@@ -648,6 +648,37 @@ export interface ApiStudentFaqStudentFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiStudentHomeStudentHome extends Struct.SingleTypeSchema {
+  collectionName: 'student_homes';
+  info: {
+    description: '';
+    displayName: 'StudentHome_Hero';
+    pluralName: 'student-homes';
+    singularName: 'student-home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::student-home.student-home'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    trailItems: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1166,6 +1197,7 @@ declare module '@strapi/strapi' {
       'api::social-icon.social-icon': ApiSocialIconSocialIcon;
       'api::state-user-base.state-user-base': ApiStateUserBaseStateUserBase;
       'api::student-faq.student-faq': ApiStudentFaqStudentFaq;
+      'api::student-home.student-home': ApiStudentHomeStudentHome;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

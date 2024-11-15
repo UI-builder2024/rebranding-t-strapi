@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "student_homes",
+  "info": {
+    "singularName": "student-home",
+    "pluralName": "student-homes",
+    "displayName": "StudentHome_Hero",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "string"
+    },
+    "trailItems": {
+      "type": "json"
+    }
+  }
+}
