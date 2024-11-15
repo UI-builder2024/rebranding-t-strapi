@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_blogs",
+  "info": {
+    "singularName": "media-blog",
+    "pluralName": "media-blogs",
+    "displayName": "MediaBlog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "linkedinLink": {
+      "type": "string"
+    },
+    "mediumLink": {
+      "type": "string"
+    },
+    "thumbnailImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

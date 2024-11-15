@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_podcasts",
+  "info": {
+    "singularName": "media-podcast",
+    "pluralName": "media-podcasts",
+    "displayName": "MediaPodcast"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "videoId": {
+      "type": "string"
+    }
+  }
+}
