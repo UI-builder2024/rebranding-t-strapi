@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dos_cta_cards",
+  "info": {
+    "singularName": "dos-cta-card",
+    "pluralName": "dos-cta-cards",
+    "displayName": "DosCtaCard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

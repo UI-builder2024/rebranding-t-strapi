@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "dos_cta_sections",
+  "info": {
+    "singularName": "dos-cta-section",
+    "pluralName": "dos-cta-sections",
+    "displayName": "DosCtaSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "dos_cta_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dos-cta-card.dos-cta-card"
+    }
+  }
+}

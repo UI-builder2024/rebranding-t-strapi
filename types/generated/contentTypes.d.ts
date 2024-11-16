@@ -624,6 +624,71 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDosCtaCardDosCtaCard extends Struct.CollectionTypeSchema {
+  collectionName: 'dos_cta_cards';
+  info: {
+    description: '';
+    displayName: 'DosCtaCard';
+    pluralName: 'dos-cta-cards';
+    singularName: 'dos-cta-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dos-cta-card.dos-cta-card'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDosCtaSectionDosCtaSection extends Struct.SingleTypeSchema {
+  collectionName: 'dos_cta_sections';
+  info: {
+    description: '';
+    displayName: 'DosCtaSection';
+    pluralName: 'dos-cta-sections';
+    singularName: 'dos-cta-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dos_cta_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dos-cta-card.dos-cta-card'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dos-cta-section.dos-cta-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDosHeroDosHero extends Struct.SingleTypeSchema {
   collectionName: 'dos_heroes';
   info: {
@@ -1781,6 +1846,8 @@ declare module '@strapi/strapi' {
       'api::bucks-redeem-card.bucks-redeem-card': ApiBucksRedeemCardBucksRedeemCard;
       'api::bucks-reward.bucks-reward': ApiBucksRewardBucksReward;
       'api::deal.deal': ApiDealDeal;
+      'api::dos-cta-card.dos-cta-card': ApiDosCtaCardDosCtaCard;
+      'api::dos-cta-section.dos-cta-section': ApiDosCtaSectionDosCtaSection;
       'api::dos-hero.dos-hero': ApiDosHeroDosHero;
       'api::dos-timeline.dos-timeline': ApiDosTimelineDosTimeline;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
