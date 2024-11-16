@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "student_partners",
+  "info": {
+    "singularName": "student-partner",
+    "pluralName": "student-partners",
+    "displayName": "StudentPartner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "string"
+    },
+    "partners": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    }
+  }
+}

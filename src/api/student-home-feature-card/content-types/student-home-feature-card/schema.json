@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "student_home_feature_cards",
+  "info": {
+    "singularName": "student-home-feature-card",
+    "pluralName": "student-home-feature-cards",
+    "displayName": "StudentHomeFeatureCard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "heading": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

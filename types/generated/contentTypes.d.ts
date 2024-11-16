@@ -369,6 +369,37 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAppFeatureAppFeature extends Struct.CollectionTypeSchema {
+  collectionName: 'app_features';
+  info: {
+    displayName: 'AppFeature';
+    pluralName: 'app-features';
+    singularName: 'app-feature';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    callout: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::app-feature.app-feature'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
   collectionName: 'employer_faqs';
   info: {
@@ -557,6 +588,37 @@ export interface ApiMerchantFaqMerchantFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policies';
+  info: {
+    description: '';
+    displayName: 'Privacy Policy';
+    pluralName: 'privacy-policies';
+    singularName: 'privacy-policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content_md: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    lastUpdated: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy.privacy-policy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSocialIconSocialIcon extends Struct.CollectionTypeSchema {
   collectionName: 'social_icons';
   info: {
@@ -648,6 +710,72 @@ export interface ApiStudentFaqStudentFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiStudentFeatureCardStudentFeatureCard
+  extends Struct.SingleTypeSchema {
+  collectionName: 'student_feature_cards';
+  info: {
+    description: '';
+    displayName: 'StudentFeatureCard';
+    pluralName: 'student-feature-cards';
+    singularName: 'student-feature-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::student-feature-card.student-feature-card'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    student_home_feature_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::student-home-feature-card.student-home-feature-card'
+    >;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudentHomeFeatureCardStudentHomeFeatureCard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'student_home_feature_cards';
+  info: {
+    description: '';
+    displayName: 'StudentHomeFeatureCard';
+    pluralName: 'student-home-feature-cards';
+    singularName: 'student-home-feature-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::student-home-feature-card.student-home-feature-card'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStudentHomeStudentHome extends Struct.SingleTypeSchema {
   collectionName: 'student_homes';
   info: {
@@ -673,6 +801,42 @@ export interface ApiStudentHomeStudentHome extends Struct.SingleTypeSchema {
     subText: Schema.Attribute.String;
     title: Schema.Attribute.String;
     trailItems: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudentPartnerStudentPartner
+  extends Struct.SingleTypeSchema {
+  collectionName: 'student_partners';
+  info: {
+    displayName: 'StudentPartner';
+    pluralName: 'student-partners';
+    singularName: 'student-partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    ctaText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::student-partner.student-partner'
+    > &
+      Schema.Attribute.Private;
+    partners: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1188,16 +1352,21 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::app-feature.app-feature': ApiAppFeatureAppFeature;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
       'api::footer.footer': ApiFooterFooter;
       'api::media-blog.media-blog': ApiMediaBlogMediaBlog;
       'api::media-podcast.media-podcast': ApiMediaPodcastMediaPodcast;
       'api::media-press.media-press': ApiMediaPressMediaPress;
       'api::merchant-faq.merchant-faq': ApiMerchantFaqMerchantFaq;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::social-icon.social-icon': ApiSocialIconSocialIcon;
       'api::state-user-base.state-user-base': ApiStateUserBaseStateUserBase;
       'api::student-faq.student-faq': ApiStudentFaqStudentFaq;
+      'api::student-feature-card.student-feature-card': ApiStudentFeatureCardStudentFeatureCard;
+      'api::student-home-feature-card.student-home-feature-card': ApiStudentHomeFeatureCardStudentHomeFeatureCard;
       'api::student-home.student-home': ApiStudentHomeStudentHome;
+      'api::student-partner.student-partner': ApiStudentPartnerStudentPartner;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
