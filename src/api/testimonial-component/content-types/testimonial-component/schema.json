@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "testimonial_components",
+  "info": {
+    "singularName": "testimonial-component",
+    "pluralName": "testimonial-components",
+    "displayName": "TestimonialComponent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    },
+    "business": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    },
+    "student_heading": {
+      "type": "string"
+    },
+    "student_subText": {
+      "type": "string"
+    },
+    "business_heading": {
+      "type": "string"
+    },
+    "business_subText": {
+      "type": "string"
+    }
+  }
+}

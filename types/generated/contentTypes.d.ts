@@ -843,6 +843,77 @@ export interface ApiStudentPartnerStudentPartner
   };
 }
 
+export interface ApiTestimonialComponentTestimonialComponent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'testimonial_components';
+  info: {
+    description: '';
+    displayName: 'TestimonialComponent';
+    pluralName: 'testimonial-components';
+    singularName: 'testimonial-component';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    business: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    business_heading: Schema.Attribute.String;
+    business_subText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial-component.testimonial-component'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    student_heading: Schema.Attribute.String;
+    student_subText: Schema.Attribute.String;
+    students: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    displayName: 'Testimonial';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    comment: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1367,6 +1438,8 @@ declare module '@strapi/strapi' {
       'api::student-home-feature-card.student-home-feature-card': ApiStudentHomeFeatureCardStudentHomeFeatureCard;
       'api::student-home.student-home': ApiStudentHomeStudentHome;
       'api::student-partner.student-partner': ApiStudentPartnerStudentPartner;
+      'api::testimonial-component.testimonial-component': ApiTestimonialComponentTestimonialComponent;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
