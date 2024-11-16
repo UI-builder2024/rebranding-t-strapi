@@ -400,6 +400,31 @@ export interface ApiAppFeatureAppFeature extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBuckBuck extends Struct.SingleTypeSchema {
+  collectionName: 'bucks';
+  info: {
+    displayName: 'Buck';
+    pluralName: 'bucks';
+    singularName: 'buck';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::buck.buck'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
   collectionName: 'employer_faqs';
   info: {
@@ -1424,6 +1449,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::app-feature.app-feature': ApiAppFeatureAppFeature;
+      'api::buck.buck': ApiBuckBuck;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
       'api::footer.footer': ApiFooterFooter;
       'api::media-blog.media-blog': ApiMediaBlogMediaBlog;

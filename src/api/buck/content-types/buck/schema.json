@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "bucks",
+  "info": {
+    "singularName": "buck",
+    "pluralName": "bucks",
+    "displayName": "Buck"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    }
+  }
+}
