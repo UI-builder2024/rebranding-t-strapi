@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "bucks_deals",
+  "info": {
+    "singularName": "bucks-deal",
+    "pluralName": "bucks-deals",
+    "displayName": "BucksDeal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "string"
+    },
+    "deals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deal.deal"
+    }
+  }
+}

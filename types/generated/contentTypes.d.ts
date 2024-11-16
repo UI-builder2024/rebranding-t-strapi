@@ -425,6 +425,36 @@ export interface ApiBuckBuck extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBucksDealBucksDeal extends Struct.SingleTypeSchema {
+  collectionName: 'bucks_deals';
+  info: {
+    displayName: 'BucksDeal';
+    pluralName: 'bucks-deals';
+    singularName: 'bucks-deal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    deals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bucks-deal.bucks-deal'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBucksJobBucksJob extends Struct.SingleTypeSchema {
   collectionName: 'bucks_jobs';
   info: {
@@ -487,6 +517,46 @@ export interface ApiBucksJobsBelowTextBucksJobsBelowText
   };
 }
 
+export interface ApiDealDeal extends Struct.CollectionTypeSchema {
+  collectionName: 'deals';
+  info: {
+    description: '';
+    displayName: 'Deal';
+    pluralName: 'deals';
+    singularName: 'deal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'> &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    offer: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    tagColor: Schema.Attribute.Enumeration<
+      [
+        'bg-red-600',
+        'bg-red-400',
+        'bg-green-700',
+        'bg-green-400',
+        'bg-purple-600',
+      ]
+    >;
+    tagText: Schema.Attribute.Enumeration<
+      ['Exclusive', 'New', 'Limited', 'Popular', 'Hot Deal', 'Special']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
   collectionName: 'employer_faqs';
   info: {
@@ -519,6 +589,7 @@ export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
+    description: '';
     displayName: 'Footer';
     pluralName: 'footers';
     singularName: 'footer';
@@ -537,7 +608,9 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       'api::footer.footer'
     > &
       Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1544,8 +1617,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::app-feature.app-feature': ApiAppFeatureAppFeature;
       'api::buck.buck': ApiBuckBuck;
+      'api::bucks-deal.bucks-deal': ApiBucksDealBucksDeal;
       'api::bucks-job.bucks-job': ApiBucksJobBucksJob;
       'api::bucks-jobs-below-text.bucks-jobs-below-text': ApiBucksJobsBelowTextBucksJobsBelowText;
+      'api::deal.deal': ApiDealDeal;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
       'api::footer.footer': ApiFooterFooter;
       'api::jobs-card.jobs-card': ApiJobsCardJobsCard;

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deals",
+  "info": {
+    "singularName": "deal",
+    "pluralName": "deals",
+    "displayName": "Deal",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tagColor": {
+      "type": "enumeration",
+      "enum": [
+        "bg-red-600",
+        "bg-red-400",
+        "bg-green-700",
+        "bg-green-400",
+        "bg-purple-600"
+      ]
+    },
+    "tagText": {
+      "type": "enumeration",
+      "enum": [
+        "Exclusive",
+        "New",
+        "Limited",
+        "Popular",
+        "Hot Deal",
+        "Special"
+      ]
+    },
+    "offer": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
