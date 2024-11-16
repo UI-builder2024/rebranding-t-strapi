@@ -458,6 +458,35 @@ export interface ApiBucksJobBucksJob extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBucksJobsBelowTextBucksJobsBelowText
+  extends Struct.SingleTypeSchema {
+  collectionName: 'bucks_jobs_below_texts';
+  info: {
+    displayName: 'BucksJobsBelowText';
+    pluralName: 'bucks-jobs-below-texts';
+    singularName: 'bucks-jobs-below-text';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bucks-jobs-below-text.bucks-jobs-below-text'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
   collectionName: 'employer_faqs';
   info: {
@@ -1516,6 +1545,7 @@ declare module '@strapi/strapi' {
       'api::app-feature.app-feature': ApiAppFeatureAppFeature;
       'api::buck.buck': ApiBuckBuck;
       'api::bucks-job.bucks-job': ApiBucksJobBucksJob;
+      'api::bucks-jobs-below-text.bucks-jobs-below-text': ApiBucksJobsBelowTextBucksJobsBelowText;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
       'api::footer.footer': ApiFooterFooter;
       'api::jobs-card.jobs-card': ApiJobsCardJobsCard;
