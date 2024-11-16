@@ -517,6 +517,73 @@ export interface ApiBucksJobsBelowTextBucksJobsBelowText
   };
 }
 
+export interface ApiBucksRedeemCardBucksRedeemCard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bucks_redeem_cards';
+  info: {
+    displayName: 'BucksRedeemCard';
+    pluralName: 'bucks-redeem-cards';
+    singularName: 'bucks-redeem-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bucks-redeem-card.bucks-redeem-card'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    reward: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBucksRewardBucksReward extends Struct.SingleTypeSchema {
+  collectionName: 'bucks_rewards';
+  info: {
+    description: '';
+    displayName: 'BucksReward';
+    pluralName: 'bucks-rewards';
+    singularName: 'bucks-reward';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bucks_redeem_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bucks-redeem-card.bucks-redeem-card'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bucks-reward.bucks-reward'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    subText2: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDealDeal extends Struct.CollectionTypeSchema {
   collectionName: 'deals';
   info: {
@@ -551,6 +618,67 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     tagText: Schema.Attribute.Enumeration<
       ['Exclusive', 'New', 'Limited', 'Popular', 'Hot Deal', 'Special']
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDosHeroDosHero extends Struct.SingleTypeSchema {
+  collectionName: 'dos_heroes';
+  info: {
+    displayName: 'DosHero';
+    pluralName: 'dos-heroes';
+    singularName: 'dos-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaLinkText: Schema.Attribute.String;
+    ctaText: Schema.Attribute.String;
+    flipWords: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dos-hero.dos-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDosTimelineDosTimeline extends Struct.CollectionTypeSchema {
+  collectionName: 'dos_timelines';
+  info: {
+    displayName: 'DosTimeline';
+    pluralName: 'dos-timelines';
+    singularName: 'dos-timeline';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    level: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dos-timeline.dos-timeline'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -805,6 +933,36 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiQrCodeComponentQrCodeComponent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'qr_code_components';
+  info: {
+    displayName: 'QrCodeComponent';
+    pluralName: 'qr-code-components';
+    singularName: 'qr-code-component';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::qr-code-component.qr-code-component'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1620,7 +1778,11 @@ declare module '@strapi/strapi' {
       'api::bucks-deal.bucks-deal': ApiBucksDealBucksDeal;
       'api::bucks-job.bucks-job': ApiBucksJobBucksJob;
       'api::bucks-jobs-below-text.bucks-jobs-below-text': ApiBucksJobsBelowTextBucksJobsBelowText;
+      'api::bucks-redeem-card.bucks-redeem-card': ApiBucksRedeemCardBucksRedeemCard;
+      'api::bucks-reward.bucks-reward': ApiBucksRewardBucksReward;
       'api::deal.deal': ApiDealDeal;
+      'api::dos-hero.dos-hero': ApiDosHeroDosHero;
+      'api::dos-timeline.dos-timeline': ApiDosTimelineDosTimeline;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
       'api::footer.footer': ApiFooterFooter;
       'api::jobs-card.jobs-card': ApiJobsCardJobsCard;
@@ -1629,6 +1791,7 @@ declare module '@strapi/strapi' {
       'api::media-press.media-press': ApiMediaPressMediaPress;
       'api::merchant-faq.merchant-faq': ApiMerchantFaqMerchantFaq;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
+      'api::qr-code-component.qr-code-component': ApiQrCodeComponentQrCodeComponent;
       'api::social-icon.social-icon': ApiSocialIconSocialIcon;
       'api::state-user-base.state-user-base': ApiStateUserBaseStateUserBase;
       'api::student-faq.student-faq': ApiStudentFaqStudentFaq;

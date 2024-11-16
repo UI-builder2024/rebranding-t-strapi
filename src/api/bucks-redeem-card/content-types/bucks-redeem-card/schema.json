@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bucks_redeem_cards",
+  "info": {
+    "singularName": "bucks-redeem-card",
+    "pluralName": "bucks-redeem-cards",
+    "displayName": "BucksRedeemCard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "reward": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

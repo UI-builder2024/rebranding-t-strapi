@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "dos_heroes",
+  "info": {
+    "singularName": "dos-hero",
+    "pluralName": "dos-heroes",
+    "displayName": "DosHero"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "flipWords": {
+      "type": "text"
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "ctaLinkText": {
+      "type": "string"
+    }
+  }
+}

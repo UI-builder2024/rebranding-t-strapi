@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dos_timelines",
+  "info": {
+    "singularName": "dos-timeline",
+    "pluralName": "dos-timelines",
+    "displayName": "DosTimeline"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "level": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
