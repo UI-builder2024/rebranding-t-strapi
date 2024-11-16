@@ -425,6 +425,39 @@ export interface ApiBuckBuck extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBucksJobBucksJob extends Struct.SingleTypeSchema {
+  collectionName: 'bucks_jobs';
+  info: {
+    description: '';
+    displayName: 'BucksJob';
+    pluralName: 'bucks-jobs';
+    singularName: 'bucks-job';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    jobs_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::jobs-card.jobs-card'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bucks-job.bucks-job'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
   collectionName: 'employer_faqs';
   info: {
@@ -479,6 +512,38 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiJobsCardJobsCard extends Struct.CollectionTypeSchema {
+  collectionName: 'jobs_cards';
+  info: {
+    displayName: 'JobsCard';
+    pluralName: 'jobs-cards';
+    singularName: 'jobs-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    amount: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::jobs-card.jobs-card'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    workMode: Schema.Attribute.String;
   };
 }
 
@@ -1450,8 +1515,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::app-feature.app-feature': ApiAppFeatureAppFeature;
       'api::buck.buck': ApiBuckBuck;
+      'api::bucks-job.bucks-job': ApiBucksJobBucksJob;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
       'api::footer.footer': ApiFooterFooter;
+      'api::jobs-card.jobs-card': ApiJobsCardJobsCard;
       'api::media-blog.media-blog': ApiMediaBlogMediaBlog;
       'api::media-podcast.media-podcast': ApiMediaPodcastMediaPodcast;
       'api::media-press.media-press': ApiMediaPressMediaPress;

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs_cards",
+  "info": {
+    "singularName": "jobs-card",
+    "pluralName": "jobs-cards",
+    "displayName": "JobsCard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "workMode": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

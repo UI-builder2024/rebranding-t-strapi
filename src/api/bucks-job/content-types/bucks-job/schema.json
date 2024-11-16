@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "bucks_jobs",
+  "info": {
+    "singularName": "bucks-job",
+    "pluralName": "bucks-jobs",
+    "displayName": "BucksJob",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "jobs_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jobs-card.jobs-card"
+    }
+  }
+}
