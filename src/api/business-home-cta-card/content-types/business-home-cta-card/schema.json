@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_home_cta_cards",
+  "info": {
+    "singularName": "business-home-cta-card",
+    "pluralName": "business-home-cta-cards",
+    "displayName": "BusinessHomeCtaCard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "string"
+    },
+    "keyBenefits": {
+      "type": "text"
+    }
+  }
+}

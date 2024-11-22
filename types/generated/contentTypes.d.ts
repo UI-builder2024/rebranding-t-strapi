@@ -584,6 +584,104 @@ export interface ApiBucksRewardBucksReward extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBusinessHomeCtaCardBusinessHomeCtaCard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_home_cta_cards';
+  info: {
+    displayName: 'BusinessHomeCtaCard';
+    pluralName: 'business-home-cta-cards';
+    singularName: 'business-home-cta-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    keyBenefits: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-cta-card.business-home-cta-card'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBusinessHomeCtaBusinessHomeCta
+  extends Struct.SingleTypeSchema {
+  collectionName: 'business_home_ctas';
+  info: {
+    description: '';
+    displayName: 'BusinessHomeCta';
+    pluralName: 'business-home-ctas';
+    singularName: 'business-home-cta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    business_home_cta_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-cta-card.business-home-cta-card'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-cta.business-home-cta'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBusinessHomeHeroBusinessHomeHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'business_home_heroes';
+  info: {
+    displayName: 'BusinessHomeHero';
+    pluralName: 'business-home-heroes';
+    singularName: 'business-home-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-hero.business-home-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDealDeal extends Struct.CollectionTypeSchema {
   collectionName: 'deals';
   info: {
@@ -1845,6 +1943,9 @@ declare module '@strapi/strapi' {
       'api::bucks-jobs-below-text.bucks-jobs-below-text': ApiBucksJobsBelowTextBucksJobsBelowText;
       'api::bucks-redeem-card.bucks-redeem-card': ApiBucksRedeemCardBucksRedeemCard;
       'api::bucks-reward.bucks-reward': ApiBucksRewardBucksReward;
+      'api::business-home-cta-card.business-home-cta-card': ApiBusinessHomeCtaCardBusinessHomeCtaCard;
+      'api::business-home-cta.business-home-cta': ApiBusinessHomeCtaBusinessHomeCta;
+      'api::business-home-hero.business-home-hero': ApiBusinessHomeHeroBusinessHomeHero;
       'api::deal.deal': ApiDealDeal;
       'api::dos-cta-card.dos-cta-card': ApiDosCtaCardDosCtaCard;
       'api::dos-cta-section.dos-cta-section': ApiDosCtaSectionDosCtaSection;

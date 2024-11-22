@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "business_home_ctas",
+  "info": {
+    "singularName": "business-home-cta",
+    "pluralName": "business-home-ctas",
+    "displayName": "BusinessHomeCta",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    },
+    "business_home_cta_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-home-cta-card.business-home-cta-card"
+    }
+  }
+}
