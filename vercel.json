@@ -9,5 +9,11 @@
       "src": "config/**/*.js",
       "use": "@vercel/node"
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/.output/$1"
+    }
   ]
 }
