@@ -682,6 +682,74 @@ export interface ApiBusinessHomeHeroBusinessHomeHero
   };
 }
 
+export interface ApiBusinessHomePartnerCardBusinessHomePartnerCard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_home_partner_cards';
+  info: {
+    displayName: 'BusinessHomePartnerCard';
+    pluralName: 'business-home-partner-cards';
+    singularName: 'business-home-partner-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-partner-card.business-home-partner-card'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBusinessHomePartnerBusinessHomePartner
+  extends Struct.SingleTypeSchema {
+  collectionName: 'business_home_partners';
+  info: {
+    description: '';
+    displayName: 'BusinessHomePartner';
+    pluralName: 'business-home-partners';
+    singularName: 'business-home-partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    business_home_partner_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-partner-card.business-home-partner-card'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-partner.business-home-partner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    stripHightlightWord: Schema.Attribute.String;
+    stripText: Schema.Attribute.String;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDealDeal extends Struct.CollectionTypeSchema {
   collectionName: 'deals';
   info: {
@@ -1946,6 +2014,8 @@ declare module '@strapi/strapi' {
       'api::business-home-cta-card.business-home-cta-card': ApiBusinessHomeCtaCardBusinessHomeCtaCard;
       'api::business-home-cta.business-home-cta': ApiBusinessHomeCtaBusinessHomeCta;
       'api::business-home-hero.business-home-hero': ApiBusinessHomeHeroBusinessHomeHero;
+      'api::business-home-partner-card.business-home-partner-card': ApiBusinessHomePartnerCardBusinessHomePartnerCard;
+      'api::business-home-partner.business-home-partner': ApiBusinessHomePartnerBusinessHomePartner;
       'api::deal.deal': ApiDealDeal;
       'api::dos-cta-card.dos-cta-card': ApiDosCtaCardDosCtaCard;
       'api::dos-cta-section.dos-cta-section': ApiDosCtaSectionDosCtaSection;

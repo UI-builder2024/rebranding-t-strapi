@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_home_partner_cards",
+  "info": {
+    "singularName": "business-home-partner-card",
+    "pluralName": "business-home-partner-cards",
+    "displayName": "BusinessHomePartnerCard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

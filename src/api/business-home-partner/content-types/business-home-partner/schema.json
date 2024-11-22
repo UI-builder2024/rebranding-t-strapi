@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "business_home_partners",
+  "info": {
+    "singularName": "business-home-partner",
+    "pluralName": "business-home-partners",
+    "displayName": "BusinessHomePartner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    },
+    "stripHightlightWord": {
+      "type": "string"
+    },
+    "stripText": {
+      "type": "string"
+    },
+    "business_home_partner_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-home-partner-card.business-home-partner-card"
+    }
+  }
+}
