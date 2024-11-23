@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abous_trusteds",
+  "info": {
+    "singularName": "abous-trusted",
+    "pluralName": "abous-trusteds",
+    "displayName": "AboutTrusted",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

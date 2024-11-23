@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "employer_prices",
+  "info": {
+    "singularName": "employer-price",
+    "pluralName": "employer-prices",
+    "displayName": "EmployerPrice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    },
+    "price_plans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::price-plan.price-plan"
+    }
+  }
+}

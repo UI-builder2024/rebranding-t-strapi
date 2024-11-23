@@ -369,6 +369,153 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAbousMissionVisionAbousMissionVision
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'abous_mission_visions';
+  info: {
+    description: '';
+    displayName: 'AboutMissionVision';
+    pluralName: 'abous-mission-visions';
+    singularName: 'abous-mission-vision';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abous-mission-vision.abous-mission-vision'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAbousTrustedAbousTrusted
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'abous_trusteds';
+  info: {
+    description: '';
+    displayName: 'AboutTrusted';
+    pluralName: 'abous-trusteds';
+    singularName: 'abous-trusted';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abous-trusted.abous-trusted'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAboutMemberAboutMember extends Struct.CollectionTypeSchema {
+  collectionName: 'about_members';
+  info: {
+    displayName: 'AboutMember';
+    pluralName: 'about-members';
+    singularName: 'about-member';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bio: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    linkedin: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-member.about-member'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAboutAbout extends Struct.SingleTypeSchema {
+  collectionName: 'abouts';
+  info: {
+    displayName: 'About';
+    pluralName: 'abouts';
+    singularName: 'about';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about_mission_visions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abous-mission-vision.abous-mission-vision'
+    >;
+    about_technology_partners: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abous-trusted.abous-trusted'
+    >;
+    about_trusted_partners: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abous-trusted.abous-trusted'
+    >;
+    cofounders: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-member.about-member'
+    >;
+    content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faces: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-member.about-member'
+    >;
+    investors: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-member.about-member'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAppFeatureAppFeature extends Struct.CollectionTypeSchema {
   collectionName: 'app_features';
   info: {
@@ -714,6 +861,45 @@ export interface ApiBusinessHomeLaptopBusinessHomeLaptop
   };
 }
 
+export interface ApiBusinessHomeMindMapBusinessHomeMindMap
+  extends Struct.SingleTypeSchema {
+  collectionName: 'business_home_mind_maps';
+  info: {
+    description: '';
+    displayName: 'BusinessHomeMindMap';
+    pluralName: 'business-home-mind-maps';
+    singularName: 'business-home-mind-map';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    business_mindmap_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-mindmap-item.business-mindmap-item'
+    >;
+    business_mindmap_points: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-mindmap-point.business-mindmap-point'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-mind-map.business-home-mind-map'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBusinessHomePartnerCardBusinessHomePartnerCard
   extends Struct.CollectionTypeSchema {
   collectionName: 'business_home_partner_cards';
@@ -776,6 +962,68 @@ export interface ApiBusinessHomePartnerBusinessHomePartner
     stripText: Schema.Attribute.String;
     subText: Schema.Attribute.Text;
     title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBusinessMindmapItemBusinessMindmapItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_mindmap_items';
+  info: {
+    description: '';
+    displayName: 'BusinessMindmapItem';
+    pluralName: 'business-mindmap-items';
+    singularName: 'business-mindmap-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    angle: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    item: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-mindmap-item.business-mindmap-item'
+    > &
+      Schema.Attribute.Private;
+    priority: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBusinessMindmapPointBusinessMindmapPoint
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_mindmap_points';
+  info: {
+    displayName: 'BusinessMindmapPoint';
+    pluralName: 'business-mindmap-points';
+    singularName: 'business-mindmap-point';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-mindmap-point.business-mindmap-point'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -948,6 +1196,42 @@ export interface ApiDosTimelineDosTimeline extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEmployerChartEmployerChart extends Struct.SingleTypeSchema {
+  collectionName: 'employer_charts';
+  info: {
+    description: '';
+    displayName: 'EmployerChart';
+    pluralName: 'employer-charts';
+    singularName: 'employer-chart';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    employer_productivity_charts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-productivity-chart.employer-productivity-chart'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-chart.employer-chart'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    subText2: Schema.Attribute.Text;
+    subText3: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
   collectionName: 'employer_faqs';
   info: {
@@ -971,6 +1255,196 @@ export interface ApiEmployerFaqEmployerFaq extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     question: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployerFeatureItemEmployerFeatureItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'employer_feature_items';
+  info: {
+    displayName: 'EmployerFeatureItem';
+    pluralName: 'employer-feature-items';
+    singularName: 'employer-feature-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-feature-item.employer-feature-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployerHeroEmployerHero extends Struct.SingleTypeSchema {
+  collectionName: 'employer_heroes';
+  info: {
+    displayName: 'EmployerHero';
+    pluralName: 'employer-heroes';
+    singularName: 'employer-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-hero.employer-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployerPriceEmployerPrice extends Struct.SingleTypeSchema {
+  collectionName: 'employer_prices';
+  info: {
+    displayName: 'EmployerPrice';
+    pluralName: 'employer-prices';
+    singularName: 'employer-price';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-price.employer-price'
+    > &
+      Schema.Attribute.Private;
+    price_plans: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::price-plan.price-plan'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployerProductivityChartEmployerProductivityChart
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'employer_productivity_charts';
+  info: {
+    displayName: 'EmployerProductivityChart';
+    pluralName: 'employer-productivity-charts';
+    singularName: 'employer-productivity-chart';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FullTime: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-productivity-chart.employer-productivity-chart'
+    > &
+      Schema.Attribute.Private;
+    PartTime: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    time: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployerTalentPointEmployerTalentPoint
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'employer_talent_points';
+  info: {
+    displayName: 'EmployerTalentPoint';
+    pluralName: 'employer-talent-points';
+    singularName: 'employer-talent-point';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-talent-point.employer-talent-point'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployerTalentEmployerTalent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'employer_talents';
+  info: {
+    description: '';
+    displayName: 'EmployerTalent';
+    pluralName: 'employer-talents';
+    singularName: 'employer-talent';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    employer_talent_points: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-talent-point.employer-talent-point'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employer-talent.employer-talent'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1142,6 +1616,103 @@ export interface ApiMediaPressMediaPress extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMerchantBigSpenderItemMerchantBigSpenderItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'merchant_big_spender_items';
+  info: {
+    displayName: 'MerchantBigSpenderItem';
+    pluralName: 'merchant-big-spender-items';
+    singularName: 'merchant-big-spender-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-big-spender-item.merchant-big-spender-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMerchantBigSpenderMerchantBigSpender
+  extends Struct.SingleTypeSchema {
+  collectionName: 'merchant_big_spenders';
+  info: {
+    description: '';
+    displayName: 'MerchantBigSpender';
+    pluralName: 'merchant-big-spenders';
+    singularName: 'merchant-big-spender';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-big-spender.merchant-big-spender'
+    > &
+      Schema.Attribute.Private;
+    merchant_big_spender_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-big-spender-item.merchant-big-spender-item'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMerchantCtaMerchantCta extends Struct.SingleTypeSchema {
+  collectionName: 'merchant_ctas';
+  info: {
+    description: '';
+    displayName: 'MerchantCTA';
+    pluralName: 'merchant-ctas';
+    singularName: 'merchant-cta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-cta.merchant-cta'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMerchantFaqMerchantFaq extends Struct.CollectionTypeSchema {
   collectionName: 'merchant_faqs';
   info: {
@@ -1165,6 +1736,159 @@ export interface ApiMerchantFaqMerchantFaq extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     question: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMerchantFeatureItemMerchantFeatureItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'merchant_feature_items';
+  info: {
+    displayName: 'MerchantFeatureItem';
+    pluralName: 'merchant-feature-items';
+    singularName: 'merchant-feature-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-feature-item.merchant-feature-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMerchantHeroMerchantHero extends Struct.SingleTypeSchema {
+  collectionName: 'merchant_heroes';
+  info: {
+    displayName: 'MerchantHero';
+    pluralName: 'merchant-heroes';
+    singularName: 'merchant-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-hero.merchant-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMerchantModelMerchantModel extends Struct.SingleTypeSchema {
+  collectionName: 'merchant_models';
+  info: {
+    displayName: 'MerchantModel';
+    pluralName: 'merchant-models';
+    singularName: 'merchant-model';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-model.merchant-model'
+    > &
+      Schema.Attribute.Private;
+    merchant_models_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-models-item.merchant-models-item'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMerchantModelsItemMerchantModelsItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'merchant_models_items';
+  info: {
+    displayName: 'MerchantModelsItem';
+    pluralName: 'merchant-models-items';
+    singularName: 'merchant-models-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::merchant-models-item.merchant-models-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subText: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPricePlanPricePlan extends Struct.CollectionTypeSchema {
+  collectionName: 'price_plans';
+  info: {
+    displayName: 'PricePlan';
+    pluralName: 'price-plans';
+    singularName: 'price-plan';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    durationDays: Schema.Attribute.Integer;
+    features: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::price-plan.price-plan'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2036,6 +2760,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::abous-mission-vision.abous-mission-vision': ApiAbousMissionVisionAbousMissionVision;
+      'api::abous-trusted.abous-trusted': ApiAbousTrustedAbousTrusted;
+      'api::about-member.about-member': ApiAboutMemberAboutMember;
+      'api::about.about': ApiAboutAbout;
       'api::app-feature.app-feature': ApiAppFeatureAppFeature;
       'api::buck.buck': ApiBuckBuck;
       'api::bucks-deal.bucks-deal': ApiBucksDealBucksDeal;
@@ -2047,20 +2775,38 @@ declare module '@strapi/strapi' {
       'api::business-home-cta.business-home-cta': ApiBusinessHomeCtaBusinessHomeCta;
       'api::business-home-hero.business-home-hero': ApiBusinessHomeHeroBusinessHomeHero;
       'api::business-home-laptop.business-home-laptop': ApiBusinessHomeLaptopBusinessHomeLaptop;
+      'api::business-home-mind-map.business-home-mind-map': ApiBusinessHomeMindMapBusinessHomeMindMap;
       'api::business-home-partner-card.business-home-partner-card': ApiBusinessHomePartnerCardBusinessHomePartnerCard;
       'api::business-home-partner.business-home-partner': ApiBusinessHomePartnerBusinessHomePartner;
+      'api::business-mindmap-item.business-mindmap-item': ApiBusinessMindmapItemBusinessMindmapItem;
+      'api::business-mindmap-point.business-mindmap-point': ApiBusinessMindmapPointBusinessMindmapPoint;
       'api::deal.deal': ApiDealDeal;
       'api::dos-cta-card.dos-cta-card': ApiDosCtaCardDosCtaCard;
       'api::dos-cta-section.dos-cta-section': ApiDosCtaSectionDosCtaSection;
       'api::dos-hero.dos-hero': ApiDosHeroDosHero;
       'api::dos-timeline.dos-timeline': ApiDosTimelineDosTimeline;
+      'api::employer-chart.employer-chart': ApiEmployerChartEmployerChart;
       'api::employer-faq.employer-faq': ApiEmployerFaqEmployerFaq;
+      'api::employer-feature-item.employer-feature-item': ApiEmployerFeatureItemEmployerFeatureItem;
+      'api::employer-hero.employer-hero': ApiEmployerHeroEmployerHero;
+      'api::employer-price.employer-price': ApiEmployerPriceEmployerPrice;
+      'api::employer-productivity-chart.employer-productivity-chart': ApiEmployerProductivityChartEmployerProductivityChart;
+      'api::employer-talent-point.employer-talent-point': ApiEmployerTalentPointEmployerTalentPoint;
+      'api::employer-talent.employer-talent': ApiEmployerTalentEmployerTalent;
       'api::footer.footer': ApiFooterFooter;
       'api::jobs-card.jobs-card': ApiJobsCardJobsCard;
       'api::media-blog.media-blog': ApiMediaBlogMediaBlog;
       'api::media-podcast.media-podcast': ApiMediaPodcastMediaPodcast;
       'api::media-press.media-press': ApiMediaPressMediaPress;
+      'api::merchant-big-spender-item.merchant-big-spender-item': ApiMerchantBigSpenderItemMerchantBigSpenderItem;
+      'api::merchant-big-spender.merchant-big-spender': ApiMerchantBigSpenderMerchantBigSpender;
+      'api::merchant-cta.merchant-cta': ApiMerchantCtaMerchantCta;
       'api::merchant-faq.merchant-faq': ApiMerchantFaqMerchantFaq;
+      'api::merchant-feature-item.merchant-feature-item': ApiMerchantFeatureItemMerchantFeatureItem;
+      'api::merchant-hero.merchant-hero': ApiMerchantHeroMerchantHero;
+      'api::merchant-model.merchant-model': ApiMerchantModelMerchantModel;
+      'api::merchant-models-item.merchant-models-item': ApiMerchantModelsItemMerchantModelsItem;
+      'api::price-plan.price-plan': ApiPricePlanPricePlan;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::qr-code-component.qr-code-component': ApiQrCodeComponentQrCodeComponent;
       'api::social-icon.social-icon': ApiSocialIconSocialIcon;

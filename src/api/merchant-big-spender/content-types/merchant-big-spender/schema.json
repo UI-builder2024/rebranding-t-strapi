@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "merchant_big_spenders",
+  "info": {
+    "singularName": "merchant-big-spender",
+    "pluralName": "merchant-big-spenders",
+    "displayName": "MerchantBigSpender",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "merchant_big_spender_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::merchant-big-spender-item.merchant-big-spender-item"
+    }
+  }
+}

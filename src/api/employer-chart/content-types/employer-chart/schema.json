@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "employer_charts",
+  "info": {
+    "singularName": "employer-chart",
+    "pluralName": "employer-charts",
+    "displayName": "EmployerChart",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "subText2": {
+      "type": "text"
+    },
+    "subText3": {
+      "type": "text"
+    },
+    "employer_productivity_charts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employer-productivity-chart.employer-productivity-chart"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "merchant_feature_items",
+  "info": {
+    "singularName": "merchant-feature-item",
+    "pluralName": "merchant-feature-items",
+    "displayName": "MerchantFeatureItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

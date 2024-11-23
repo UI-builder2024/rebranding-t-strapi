@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employer_talent_points",
+  "info": {
+    "singularName": "employer-talent-point",
+    "pluralName": "employer-talent-points",
+    "displayName": "EmployerTalentPoint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "merchant_heroes",
+  "info": {
+    "singularName": "merchant-hero",
+    "pluralName": "merchant-heroes",
+    "displayName": "MerchantHero"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "merchant_big_spender_items",
+  "info": {
+    "singularName": "merchant-big-spender-item",
+    "pluralName": "merchant-big-spender-items",
+    "displayName": "MerchantBigSpenderItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

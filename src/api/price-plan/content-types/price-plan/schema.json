@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "price_plans",
+  "info": {
+    "singularName": "price-plan",
+    "pluralName": "price-plans",
+    "displayName": "PricePlan"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "durationDays": {
+      "type": "integer"
+    },
+    "features": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_members",
+  "info": {
+    "singularName": "about-member",
+    "pluralName": "about-members",
+    "displayName": "AboutMember"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "bio": {
+      "type": "text"
+    },
+    "linkedin": {
+      "type": "string"
+    }
+  }
+}

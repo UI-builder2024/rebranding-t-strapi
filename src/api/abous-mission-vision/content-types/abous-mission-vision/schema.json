@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abous_mission_visions",
+  "info": {
+    "singularName": "abous-mission-vision",
+    "pluralName": "abous-mission-visions",
+    "displayName": "AboutMissionVision",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

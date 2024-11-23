@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "merchant_models",
+  "info": {
+    "singularName": "merchant-model",
+    "pluralName": "merchant-models",
+    "displayName": "MerchantModel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "merchant_models_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::merchant-models-item.merchant-models-item"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_mindmap_items",
+  "info": {
+    "singularName": "business-mindmap-item",
+    "pluralName": "business-mindmap-items",
+    "displayName": "BusinessMindmapItem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "item": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "angle": {
+      "type": "integer"
+    }
+  }
+}

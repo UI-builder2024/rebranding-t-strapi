@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "merchant_models_items",
+  "info": {
+    "singularName": "merchant-models-item",
+    "pluralName": "merchant-models-items",
+    "displayName": "MerchantModelsItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subText": {
+      "type": "text"
+    }
+  }
+}

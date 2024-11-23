@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "merchant_ctas",
+  "info": {
+    "singularName": "merchant-cta",
+    "pluralName": "merchant-ctas",
+    "displayName": "MerchantCTA",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "employer_heroes",
+  "info": {
+    "singularName": "employer-hero",
+    "pluralName": "employer-heroes",
+    "displayName": "EmployerHero"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subText": {
+      "type": "text"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    }
+  }
+}
