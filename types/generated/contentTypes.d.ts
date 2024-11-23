@@ -682,6 +682,38 @@ export interface ApiBusinessHomeHeroBusinessHomeHero
   };
 }
 
+export interface ApiBusinessHomeLaptopBusinessHomeLaptop
+  extends Struct.SingleTypeSchema {
+  collectionName: 'business_home_laptops';
+  info: {
+    displayName: 'BusinessHomeLaptop';
+    pluralName: 'business-home-laptops';
+    singularName: 'business-home-laptop';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-home-laptop.business-home-laptop'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    screenshot: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBusinessHomePartnerCardBusinessHomePartnerCard
   extends Struct.CollectionTypeSchema {
   collectionName: 'business_home_partner_cards';
@@ -2014,6 +2046,7 @@ declare module '@strapi/strapi' {
       'api::business-home-cta-card.business-home-cta-card': ApiBusinessHomeCtaCardBusinessHomeCtaCard;
       'api::business-home-cta.business-home-cta': ApiBusinessHomeCtaBusinessHomeCta;
       'api::business-home-hero.business-home-hero': ApiBusinessHomeHeroBusinessHomeHero;
+      'api::business-home-laptop.business-home-laptop': ApiBusinessHomeLaptopBusinessHomeLaptop;
       'api::business-home-partner-card.business-home-partner-card': ApiBusinessHomePartnerCardBusinessHomePartnerCard;
       'api::business-home-partner.business-home-partner': ApiBusinessHomePartnerBusinessHomePartner;
       'api::deal.deal': ApiDealDeal;

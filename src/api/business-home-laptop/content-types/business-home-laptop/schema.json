@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "business_home_laptops",
+  "info": {
+    "singularName": "business-home-laptop",
+    "pluralName": "business-home-laptops",
+    "displayName": "BusinessHomeLaptop"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "screenshot": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
