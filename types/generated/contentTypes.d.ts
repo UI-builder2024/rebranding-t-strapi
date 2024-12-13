@@ -1864,6 +1864,66 @@ export interface ApiMerchantModelsItemMerchantModelsItem
   };
 }
 
+export interface ApiMetaLandingMetaLanding extends Struct.SingleTypeSchema {
+  collectionName: 'meta_landings';
+  info: {
+    description: '';
+    displayName: 'Meta Landing';
+    pluralName: 'meta-landings';
+    singularName: 'meta-landing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    HeroCTAButtonText: Schema.Attribute.String;
+    HeroLine_1: Schema.Attribute.String;
+    HeroLine_2: Schema.Attribute.String;
+    HeroLine_3: Schema.Attribute.String;
+    HeroLine_4: Schema.Attribute.String;
+    HeroLine_5: Schema.Attribute.String;
+    HeroLine_6: Schema.Attribute.String;
+    HeroLine_7: Schema.Attribute.String;
+    HeroStep_1: Schema.Attribute.String;
+    HeroStep_2: Schema.Attribute.String;
+    HeroStep_3: Schema.Attribute.String;
+    jobs_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::jobs-card.jobs-card'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::meta-landing.meta-landing'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    section2_heading: Schema.Attribute.String;
+    section2_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    section2_jobs_list_comma: Schema.Attribute.Text;
+    section2_subText: Schema.Attribute.Text;
+    section3_card1_subText: Schema.Attribute.Text;
+    section3_card1_title: Schema.Attribute.String;
+    section3_card2_subText: Schema.Attribute.Text;
+    section3_card2_title: Schema.Attribute.String;
+    section3_card3_subText: Schema.Attribute.Text;
+    section3_card3_title: Schema.Attribute.String;
+    section3_heading: Schema.Attribute.String;
+    section4_cta_link: Schema.Attribute.String;
+    section4_cta_text: Schema.Attribute.String;
+    section4_heading: Schema.Attribute.String;
+    section4_subText: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPricePlanPricePlan extends Struct.CollectionTypeSchema {
   collectionName: 'price_plans';
   info: {
@@ -2806,6 +2866,7 @@ declare module '@strapi/strapi' {
       'api::merchant-hero.merchant-hero': ApiMerchantHeroMerchantHero;
       'api::merchant-model.merchant-model': ApiMerchantModelMerchantModel;
       'api::merchant-models-item.merchant-models-item': ApiMerchantModelsItemMerchantModelsItem;
+      'api::meta-landing.meta-landing': ApiMetaLandingMetaLanding;
       'api::price-plan.price-plan': ApiPricePlanPricePlan;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::qr-code-component.qr-code-component': ApiQrCodeComponentQrCodeComponent;

@@ -1,0 +1,107 @@
+{
+  "kind": "singleType",
+  "collectionName": "meta_landings",
+  "info": {
+    "singularName": "meta-landing",
+    "pluralName": "meta-landings",
+    "displayName": "Meta Landing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroLine_1": {
+      "type": "string"
+    },
+    "HeroLine_2": {
+      "type": "string"
+    },
+    "HeroLine_3": {
+      "type": "string"
+    },
+    "HeroLine_4": {
+      "type": "string"
+    },
+    "HeroLine_5": {
+      "type": "string"
+    },
+    "HeroLine_6": {
+      "type": "string"
+    },
+    "HeroLine_7": {
+      "type": "string"
+    },
+    "HeroStep_1": {
+      "type": "string"
+    },
+    "HeroStep_2": {
+      "type": "string"
+    },
+    "HeroStep_3": {
+      "type": "string"
+    },
+    "HeroCTAButtonText": {
+      "type": "string"
+    },
+    "section2_heading": {
+      "type": "string"
+    },
+    "section2_subText": {
+      "type": "text"
+    },
+    "section2_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "section2_jobs_list_comma": {
+      "type": "text"
+    },
+    "section3_heading": {
+      "type": "string"
+    },
+    "section3_card1_title": {
+      "type": "string"
+    },
+    "section3_card1_subText": {
+      "type": "text"
+    },
+    "section3_card2_title": {
+      "type": "string"
+    },
+    "section3_card2_subText": {
+      "type": "text"
+    },
+    "section3_card3_title": {
+      "type": "string"
+    },
+    "section3_card3_subText": {
+      "type": "text"
+    },
+    "section4_heading": {
+      "type": "string"
+    },
+    "section4_subText": {
+      "type": "text"
+    },
+    "section4_cta_text": {
+      "type": "string"
+    },
+    "section4_cta_link": {
+      "type": "string"
+    },
+    "jobs_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jobs-card.jobs-card"
+    }
+  }
+}
