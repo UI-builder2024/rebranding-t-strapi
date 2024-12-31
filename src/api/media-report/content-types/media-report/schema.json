@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "media_reports",
+  "info": {
+    "singularName": "media-report",
+    "pluralName": "media-reports",
+    "displayName": "media_report"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "report": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

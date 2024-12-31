@@ -1616,6 +1616,34 @@ export interface ApiMediaPressMediaPress extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMediaReportMediaReport extends Struct.SingleTypeSchema {
+  collectionName: 'media_reports';
+  info: {
+    displayName: 'media_report';
+    pluralName: 'media-reports';
+    singularName: 'media-report';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-report.media-report'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    report: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMerchantBigSpenderItemMerchantBigSpenderItem
   extends Struct.CollectionTypeSchema {
   collectionName: 'merchant_big_spender_items';
@@ -2976,6 +3004,7 @@ declare module '@strapi/strapi' {
       'api::media-blog.media-blog': ApiMediaBlogMediaBlog;
       'api::media-podcast.media-podcast': ApiMediaPodcastMediaPodcast;
       'api::media-press.media-press': ApiMediaPressMediaPress;
+      'api::media-report.media-report': ApiMediaReportMediaReport;
       'api::merchant-big-spender-item.merchant-big-spender-item': ApiMerchantBigSpenderItemMerchantBigSpenderItem;
       'api::merchant-big-spender.merchant-big-spender': ApiMerchantBigSpenderMerchantBigSpender;
       'api::merchant-cta.merchant-cta': ApiMerchantCtaMerchantCta;
